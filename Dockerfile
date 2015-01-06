@@ -21,6 +21,11 @@ ADD build/policy-rc.d /usr/sbin/policy-rc.d
 # Disable SSH
 RUN rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
 
+# Ensure UTF-8
+RUN locale-gen en_US.UTF-8
+ENV LANG       en_US.UTF-8
+ENV LC_ALL     en_US.UTF-8
+
 CMD ["/sbin/my_init"]
 
 # Java Installation
@@ -33,12 +38,14 @@ RUN \
 ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
 
 # ElasticSearch Installation
+ENV ES_VERSION 1.4.2
+
 WORKDIR /opt
 RUN \
-  wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.2.tar.gz && \
-  tar xvzf elasticsearch-1.3.2.tar.gz && \
-  rm -f elasticsearch-1.3.2.tar.gz && \
-  ln -s /opt/elasticsearch-1.3.2 /opt/elasticsearch && \
+  wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-$ES_VERSION.tar.gz && \
+  tar xvzf elasticsearch-$ES_VERSION.tar.gz && \
+  rm -f elasticsearch-$ES_VERSION.tar.gz && \
+  ln -s /opt/elasticsearch-$ES_VERSION /opt/elasticsearch && \
   /opt/elasticsearch/bin/plugin -i lmenezes/elasticsearch-kopf && \
   /opt/elasticsearch/bin/plugin -i elasticsearch/marvel/latest
 
