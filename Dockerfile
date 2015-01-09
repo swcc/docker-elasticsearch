@@ -26,8 +26,6 @@ RUN locale-gen en_US.UTF-8
 ENV LANG       en_US.UTF-8
 ENV LC_ALL     en_US.UTF-8
 
-CMD ["/sbin/my_init"]
-
 # Java Installation
 RUN \
   echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
@@ -59,6 +57,8 @@ RUN chmod +x /etc/service/elasticsearch/run
 WORKDIR /data
 VOLUME ["/data"]
 EXPOSE 9200 9300
+
+CMD ["/sbin/my_init"]
 # End Installation
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
