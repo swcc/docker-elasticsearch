@@ -384,3 +384,5 @@ http.enabled: true
 http.jsonp.enable: false
 
 script.disable_dynamic: true
+http.cors.allow-origin: "/.*/"
+http.cors.enabled: true
