@@ -1,7 +1,6 @@
 ## elasticsearch Dockerfile
 
-[![Docker Hub](https://img.shields.io/badge/docker-mkaag%2Felasticsearch-008bb8.svg)](https://registry.hub.docker.com/u/mkaag/elasticsearch/)
-
+[![Docker Hub](https://img.shields.io/badge/docker-swcc%2Fdocker--elasticsearch-blue.svg?style=flat)](https://registry.hub.docker.com/u/swcc/docker-elasticsearch/)
 
 This repository contains the **Dockerfile** and the configuration files of [ElasticSearch](http://www.elasticsearch.org/) for [Docker](https://www.docker.com/).
 

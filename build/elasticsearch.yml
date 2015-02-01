@@ -142,11 +142,11 @@
 
 # Path to directory containing configuration (this file and logging.yml):
 #
-#path.conf: /path/to/conf
+path.conf: /etc/elasticsearch
 
 # Path to directory where to store index data allocated for this node.
 #
-path.data: /app/data
+path.data: /data
 #
 # Can optionally include more than one location, causing data to be striped across
 # the locations (a la RAID 0) on a file level, favouring locations with most free
@@ -156,11 +156,11 @@ path.data: /app/data
 
 # Path to temporary files:
 #
-path.work: /app/work
+path.work: /tmp/elasticsearch
 
 # Path to log files:
 #
-path.logs: /app/logs
+path.logs: /var/log/elasticsearch
 
 # Path to where plugins are installed:
 #
